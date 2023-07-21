@@ -1,6 +1,11 @@
 import os
+saldo = 0
+limite = 500
+extrato = []
+numero_saques = 0
 
-menu = """"
+while True:
+    menu = str(input(""""
 
     ############ MENU ############
 
@@ -10,19 +15,10 @@ menu = """"
     [4] - Sair
 
     ##############################
+    >>: 
+"""))
 
-"""
-
-saldo = 0
-limite = 500
-extrato = []
-numero_saques = 0
-
-while True:
-    
-    opcao = str(input(menu))
-
-    if opcao == '1':
+    if menu == '1':
         deposito = float(input("Digite o valor do depósito: "))
         if deposito >= 0:
             saldo += deposito
@@ -32,7 +28,7 @@ while True:
         elif deposito < 0:
             print('Digite um valor inteiro positivo')
 
-    elif opcao == '2':
+    elif menu == '2':
         while True:
             saque = float(input("Digite o valor que queira sacar: "))
             
@@ -63,7 +59,7 @@ Seu saldo atual é de: R$ {saldo:.2f}
                 extrato.append(f'S: R$ {saque:.2f}')
                 break
 
-    elif opcao == '3':
+    elif menu == '3':
         os.system('cls')
 
         if extrato == []:
@@ -74,7 +70,7 @@ Seu saldo atual é de: R$ {saldo:.2f}
             print(i)
         print(f"Seu saldo atual é: R$ {saldo:.2f}")
 
-    elif opcao == '4':
+    elif menu == '4':
         break
 
     else:
